@@ -7,8 +7,8 @@
     <?php wp_head(); ?>
   </head>
   <body>
+      <h1>APP</h1>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
     <?php wp_footer(); ?>
   </body>
 </html>
