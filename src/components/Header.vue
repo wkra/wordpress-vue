@@ -1,22 +1,21 @@
 <template>
-  <div class="contact">
+  <header>
     <h1>{{ msg }}</h1>
-    </div>
+    </header>
 </template>
 
 <script>
 export default {
-  name: 'Kontakt',
+  name: 'Header',
   data () {
     return {
-      msg: 'Kontakt'
+      msg: 'Header'
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="less">
 h1, h2 {
   font-weight: normal;
   color: blue;
