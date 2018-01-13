@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Post from '@/components/Post'
-import Page from '@/components/Page'
+import Routing from '@/components/Routing'
 
 Vue.use(Router)
 
@@ -17,14 +17,14 @@ export default new Router({
       component: Home
     },
     {
-      path: '/post/:name',
-      name: 'Post',
-      component: Post
+      path: '/:name',
+      name: 'Routing',
+      component: Routing
     },
     {
-      path: '/page/:name',
-      name: 'Page',
-      component: Page
+      path: '/:categories/:post',
+      name: 'Post',
+      component: Post
     }
   ]
 })

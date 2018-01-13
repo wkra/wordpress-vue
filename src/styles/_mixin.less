@@ -1,0 +1,55 @@
+@screen-s:        576px;
+@screen-m:        720px;
+@screen-l:        992px;
+@screen-xl:       1200px;
+
+@screen-max-s:   (@screen-s - 1);
+@screen-max-m:   (@screen-m - 1);
+@screen-max-l:   (@screen-l - 1);
+@screen-max-xl:   (@screen-xl - 1);
+
+@min-s: ~"only screen and (min-width: @{screen-s}) ";
+@min-m: ~"only screen and (min-width: @{screen-m}) ";
+@min-l: ~"only screen and (min-width: @{screen-l}) ";
+@min-xl: ~"only screen and (min-width: @{screen-xl}) ";
+@max-s: ~"only screen and (max-width: @{screen-max-s}) ";
+@max-m: ~"only screen and (max-width: @{screen-max-m}) ";
+@max-l: ~"only screen and (max-width: @{screen-max-l}) ";
+@max-xl: ~"only screen and (max-width: @{screen-max-xl}) ";
+
+/*
+************************************************
+ PRZYKŁAD
+************************************************
+div {
+  display: block;
+    @media @max-m {
+    opacity: 1;
+  }
+}
+****************
+div {
+  display: block;
+}
+@media "only screen and (min-width: 719px) " {
+  div {
+    opacity: 1;
+  }
+}
+************************************************
+LUB
+************************************************
+@media @max-m {
+    div {
+  display: block;
+  opacity: 1;
+  }
+}
+****************
+@media "only screen and (min-width: 719px) " {
+  div {
+    display: block;
+    opacity: 1;
+  }
+}
+*/

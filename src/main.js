@@ -4,7 +4,9 @@ import Vue from 'vue'
 import router from './router'
 import App from './App'
 import Header from './components/Header'
-import Footer from './components/Footer.vue'
+import Footer from './components/Footer'
+import Page from './components/Page'
+import Categorie from './components/Categorie'
 
 import './styles/style.less'
 
@@ -12,6 +14,8 @@ Vue.config.productionTip = false
 
 Vue.component('app-header', Header)
 Vue.component('app-footer', Footer)
+Vue.component('app-page', Page)
+Vue.component('app-categorie', Categorie)
 
 /* eslint-disable no-new */
 new Vue({

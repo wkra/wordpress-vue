@@ -1,7 +1,7 @@
 <template>
   <footer>
     <h1>{{ msg }}</h1>
-    </footer>
+  </footer>
 </template>
 
 <script>

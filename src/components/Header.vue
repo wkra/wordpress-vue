@@ -1,7 +1,7 @@
 <template>
   <header>
     <h1>{{ msg }}</h1>
-    </header>
+  </header>
 </template>
 
 <script>

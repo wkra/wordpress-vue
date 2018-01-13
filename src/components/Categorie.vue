@@ -1,13 +1,13 @@
 <template>
-  <div class="post-wrapper">
-    <h1>PAGE</h1>
-      {{ page }}
+  <div>
+    <h1>CATEGORIES</h1>
+      {{ posts }}
   </div>
 </template>
 
 <script>
 export default {
-  props: ['page'],
+  props: ['posts'],
   data () {
     return {
       pageTitle: '',

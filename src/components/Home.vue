@@ -12,6 +12,9 @@
 import axios from 'axios'
 
 export default {
+  mounted: function () {
+    this.getCategoriesNames()
+  },
   data () {
     return {
       msg: 'HOME',
@@ -19,7 +22,23 @@ export default {
       categoryId: 16
     }
   },
+  methods: {
+    getCategoriesNames: function () {
+      var vm = this
+      vm.loaded = 'false'
 
+      axios.get('http://localhost/wordpress-vue/wp-json/wp/v2/posts', {
+        params: { slug: vm.$route.params.name }
+      })
+      .then((res) => {
+        vm.postTitle = vm.page.title.rendered
+        vm.postContent = vm.page.content.rendered
+      })
+      .catch((res) => {
+        console.log(`Something went wrong : ${res}`)
+      })
+    }
+  },
   created () {
     axios.get(`http://localhost/wordpress-vue/wp-json/wp/v2/posts?categories=16`)
     .then(response => {
