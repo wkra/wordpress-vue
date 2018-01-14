@@ -19,7 +19,7 @@ export default {
     return {
       msg: 'HOME',
       wpData: '',
-      homeCategoryId: 16
+      homeCategoryId: 24
     }
   },
   methods: {
@@ -36,6 +36,11 @@ export default {
       .catch((res) => {
         console.log(`Something went wrong : ${res}`)
       })
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      this.getPostsfromCatId()
     }
   }
 }

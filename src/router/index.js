@@ -18,7 +18,7 @@ export default new Router({
       component: Routing
     },
     {
-      path: '/:name/:post',
+      path: '#/:name/:post',
       name: 'Post',
       component: Post
     }

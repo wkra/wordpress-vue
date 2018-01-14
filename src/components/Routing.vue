@@ -6,11 +6,11 @@
   </div>
 <!-- PAGE -->
   <div v-if="type === 'page'">
-    <app-page :page="wpData"></app-page>  
+    <app-page :page="wpData.data"></app-page>  
   </div>
 <!-- CATEGORIES -->
   <div v-if="type === 'categorie'">
-    <app-categorie :posts="wpData"></app-categorie>  
+    <app-categorie :categorie="wpData"></app-categorie>  
   </div>
 </div>
 </template>
@@ -25,7 +25,10 @@ export default {
   },
   data () {
     return {
-      wpData: '',
+      wpData: {
+        title: '',
+        data: ''
+      },
       type: ''
     }
   },
@@ -39,7 +42,7 @@ export default {
       })
       .then((res) => {
         if (res.data.length > 0) {
-          vm.wpData = res.data
+          vm.wpData.data = res.data[0]
           vm.type = 'page'
         }
       })
@@ -58,6 +61,7 @@ export default {
       .then((res) => {
         if (res.data.length > 0) {
           vm.getPostsfromCatId(res.data[0].id)
+          vm.wpData.title = res.data[0].name
           vm.type = 'categorie'
         }
       })
@@ -74,7 +78,7 @@ export default {
         params: { categories: catId }
       })
       .then((res) => {
-        vm.wpData = res.data
+        vm.wpData.data = res.data
       })
       .catch((res) => {
         vm.type = 'error'
@@ -84,6 +88,7 @@ export default {
   },
   watch: {
     '$route' (to, from) {
+      this.findCategories()
       this.getPage()
     }
   }

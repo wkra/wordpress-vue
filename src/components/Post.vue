@@ -12,7 +12,7 @@ import axios from 'axios'
 
 export default {
   mounted: function () {
-    this.getPage()
+    this.getPost()
   },
   data () {
     return {
@@ -21,7 +21,7 @@ export default {
     }
   },
   methods: {
-    getPage: function () {
+    getPost: function () {
       var vm = this
       vm.loaded = 'false'
 
@@ -41,7 +41,7 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      this.getPage()
+      this.getPost()
     }
   }
 }

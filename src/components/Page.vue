@@ -1,7 +1,10 @@
 <template>
   <div class="post-wrapper">
     <h1>PAGE</h1>
-      {{ page }}
+      <div v-if="page">
+        <h2 v-html="page.title.rendered"></h2>
+        <div v-html="page.content.rendered"></div>
+      </div>
   </div>
 </template>
 
