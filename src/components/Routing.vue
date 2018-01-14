@@ -1,7 +1,7 @@
 <template>
 <div>
 <!-- 404 -->
-  <div v-if="type === ''">
+  <div v-if="type === 'error'">
     <h1>404</h1>
   </div>
 <!-- PAGE -->
@@ -20,8 +20,8 @@ import axios from 'axios'
 
 export default {
   mounted: function () {
-    this.getPage()
     this.findCategories()
+    this.getPage()
   },
   data () {
     return {
@@ -44,6 +44,7 @@ export default {
         }
       })
       .catch((res) => {
+        vm.type = 'error'
         console.log(`Something went wrong : ${res}`)
       })
     },
@@ -61,6 +62,7 @@ export default {
         }
       })
       .catch((res) => {
+        vm.type = 'error'
         console.log(`Something went wrong : ${res}`)
       })
     },
@@ -75,6 +77,7 @@ export default {
         vm.wpData = res.data
       })
       .catch((res) => {
+        vm.type = 'error'
         console.log(`Something went wrong : ${res}`)
       })
     }

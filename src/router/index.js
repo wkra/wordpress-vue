@@ -9,10 +9,6 @@ Vue.use(Router)
 export default new Router({
   routes: [
     { path: '/',
-      redirect: '/home'
-    },
-    {
-      path: '/home',
       name: 'Home',
       component: Home
     },
@@ -22,7 +18,7 @@ export default new Router({
       component: Routing
     },
     {
-      path: '/:categories/:post',
+      path: '/:name/:post',
       name: 'Post',
       component: Post
     }
