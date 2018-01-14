@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>{{ msg }}</h1>
-    <div class="post__wrapper" v-for="post in posts">
+    <div v-for="post in wpData">
         <h2>{{ post.title.rendered }}</h2>
         <span v-html="post.content.rendered"></span>
     </div>
@@ -12,22 +12,36 @@
 import axios from 'axios'
 
 export default {
+  mounted: function () {
+    this.getPostsfromCatId(this.homeCategoryId)
+  },
   data () {
     return {
       msg: 'HOME',
-      posts: '',
-      categoryId: 16
+      wpData: '',
+      homeCategoryId: 24
     }
   },
+  methods: {
+    getPostsfromCatId: function (catId) {
+      var vm = this
+      vm.loaded = 'false'
 
-  created () {
-    axios.get(`http://localhost/wordpress-vue/wp-json/wp/v2/posts?categories=16`)
-    .then(response => {
-      this.posts = response.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
+      axios.get('http://localhost/wordpress-vue/wp-json/wp/v2/posts', {
+        params: { categories: catId }
+      })
+      .then((res) => {
+        vm.wpData = res.data
+      })
+      .catch((res) => {
+        console.log(`Something went wrong : ${res}`)
+      })
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      this.getPostsfromCatId()
+    }
   }
 }
 </script>
