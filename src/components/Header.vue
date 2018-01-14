@@ -1,11 +1,16 @@
 <template>
   <header>
     <h1>{{ msg }}</h1>
-    <ul>
-      <li v-for="item in menuItems">
+    <div>
+      <p v-for="item in menuItems">
         <a :href="replaceUrl(item.url)">{{ item.title }}</a> 
-      </li>
-    </ul>
+        <span v-if="item.children">
+          <span v-for="itemChildren in item.children">
+            <a :href="replaceUrl(itemChildren.url)">{{ itemChildren.title }}</a> 
+          </span>
+        </span>
+      </p>
+    </div>
   </header>
 </template>
 

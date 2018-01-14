@@ -8,9 +8,9 @@
   <div v-if="type === 'page'">
     <app-page :page="wpData.data"></app-page>  
   </div>
-<!-- CATEGORIES -->
-  <div v-if="type === 'categorie'">
-    <app-categorie :categorie="wpData"></app-categorie>  
+<!-- POSTS -->
+  <div v-if="type === 'posts'">
+    <app-posts :posts="wpData"></app-posts>  
   </div>
 </div>
 </template>
@@ -62,7 +62,6 @@ export default {
         if (res.data.length > 0) {
           vm.getPostsfromCatId(res.data[0].id)
           vm.wpData.title = res.data[0].name
-          vm.type = 'categorie'
         }
       })
       .catch((res) => {
@@ -79,6 +78,7 @@ export default {
       })
       .then((res) => {
         vm.wpData.data = res.data
+        vm.type = 'posts'
       })
       .catch((res) => {
         vm.type = 'error'
