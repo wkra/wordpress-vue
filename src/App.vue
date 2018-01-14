@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <app-header></app-header>
+    <main><router-view/></main>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'app'
 }
 </script>
 
-<style>
+<style lang="less">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
